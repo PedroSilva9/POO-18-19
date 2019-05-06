@@ -85,11 +85,8 @@ public class Encomenda {
     }
 
     public boolean existeProdutoEncomenda(String refProduto){
-        //return this.encomendas.contains(refProduto);
         return this.encomendas.stream()
-                .filter(x -> x.getReferencia().equals(refProduto))
-                .collect(Collectors.toList())
-                .isEmpty();
+                .anyMatch(x -> x.getReferencia().equals(refProduto));
     }
 
     public void adicionaLinha(LinhaEncomenda linha){
