@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
+import java.util.*;
 
 public class Encomenda {
     private String nome;
@@ -90,10 +88,15 @@ public class Encomenda {
     }
 
     public void adicionaLinha(LinhaEncomenda linha){
-        this.encomendas.add(linha);
+        this.encomendas.add(linha.clone());
     }
 
     public void removeProduto(String codProd){
-        this.encomendas.remove(codProd);
+        for(Iterator<LinhaEncomenda> it = this.encomendas.iterator() ; it.hasNext();){
+            LinhaEncomenda le = it.next();
+            if(le.getReferencia().equals(codProd)){
+                it.remove();
+            }
+        }
     }
 }
