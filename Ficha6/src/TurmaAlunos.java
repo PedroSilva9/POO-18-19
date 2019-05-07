@@ -89,6 +89,7 @@ public class TurmaAlunos {
         for (Aluno a : this.turma.values()){
             ret.add(a.clone());
         }
+        return ret;
     }
 
 }
