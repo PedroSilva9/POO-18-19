@@ -36,7 +36,7 @@ public class Parque {
     }
 
     public Map<String,Lugar> getLugares(){
-        HashMap hashmap = new HashMap<>();
+        Map hashmap = new HashMap<>();
         for(Lugar l : this.lugares.values()){
             hashmap.put(l.getMatricula(), l.clone());
         }
