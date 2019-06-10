@@ -32,6 +32,7 @@ public class FBFeed {
     }
 
     public void setPosts(List<FBPost> elems){
+        this.posts = new ArrayList<>();
         for(FBPost f : elems){
             this.posts.add(f.clone());
         }
@@ -110,5 +111,13 @@ public class FBFeed {
                 found = true;
             }
         }
+    }
+
+    public List<Integer> top5Comments(){
+        return this.posts.stream()
+                .sorted(new ComparatorComentarios())
+                .limit((long) 5)
+                .map(FBPost::getId)
+                .collect(Collectors.toList());
     }
 }
